@@ -1,0 +1,16 @@
+{
+  "icmp_checks_enabled": true,
+  "networks": [
+    {
+      "name": "${DIRECTOR_NETWORK_NAME}",
+      "service_network": false,
+      "subnets": [{
+        "iaas_identifier": "${RESOURCE_GROUP}/${NETWORK}/${SUBNET}",
+        "cidr": "${CIDR}",
+        "reserved_ip_ranges": "${RESERVED_IP_RANGE}",
+        "dns": "${DNS_SERVERS}",
+        "gateway": "${GATEWAY}"
+      }]
+    }
+  ]
+}
