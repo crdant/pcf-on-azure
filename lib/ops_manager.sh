@@ -10,3 +10,8 @@ apply_changes () {
   CHANGES_JSON=`export ERRANDS ; envsubst < api-calls/ops-manager/apply-changes.json ; unset ERRANDS`
   curl -qsLf --insecure -X POST "${OPS_MANAGER_API_ENDPOINT}/installations" -H "Content-Type: application/json" -H "Authorization: Bearer ${UAA_ACCESS_TOKEN}" -d "${CHANGES_JSON}"
 }
+
+install_logs () {
+  INSTALL_ID=$1
+  curl -qsLf --insecure "${OPS_MANAGER_API_ENDPOINT}/installations/${INSTALL_ID}/logs" -H "Content-Type: application/json" -H "Authorization: Bearer ${UAA_ACCESS_TOKEN}"
+}
